@@ -12,9 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use App\Plan;
 Route::get('/', function () {
-    return view('welcome');
+    $plans = Plan::all();
+    return view('welcome')->with('plans',$plans);
 });
 
 Auth::routes();
